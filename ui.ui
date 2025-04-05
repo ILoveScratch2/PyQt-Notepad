@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>window</class>
+ <widget class="QMainWindow" name="window">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>750</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>记事本</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextEdit" name="text">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>30</y>
+      <width>751</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="lineWrapMode">
+     <enum>QTextEdit::NoWrap</enum>
+    </property>
+    <property name="acceptRichText">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>750</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="new_file"/>
+    <addaction name="open_file"/>
+    <addaction name="save_file"/>
+    <addaction name="save_as"/>
+    <addaction name="separator"/>
+    <addaction name="print"/>
+    <addaction name="separator"/>
+    <addaction name="quit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="undo"/>
+    <addaction name="redo"/>
+    <addaction name="separator"/>
+    <addaction name="select"/>
+    <addaction name="cut"/>
+    <addaction name="copy"/>
+    <addaction name="paste"/>
+    <addaction name="separator"/>
+    <addaction name="search"/>
+    <addaction name="separator"/>
+    <addaction name="find"/>
+    <addaction name="replace"/>
+    <addaction name="separator"/>
+    <addaction name="insert_time"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>格式</string>
+    </property>
+    <addaction name="auto_change_line"/>
+    <addaction name="font"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>查看</string>
+    </property>
+    <addaction name="status_bar"/>
+   </widget>
+   <widget class="QMenu" name="menub">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="help"/>
+    <addaction name="about"/>
+    <addaction name="action"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
+   <addaction name="menub"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="new_file">
+   <property name="text">
+    <string>新建</string>
+   </property>
+  </action>
+  <action name="open_file">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="save_file">
+   <property name="text">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="print">
+   <property name="text">
+    <string>打印</string>
+   </property>
+  </action>
+  <action name="quit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="undo">
+   <property name="text">
+    <string>撤销</string>
+   </property>
+  </action>
+  <action name="redo">
+   <property name="text">
+    <string>重做</string>
+   </property>
+  </action>
+  <action name="select">
+   <property name="text">
+    <string>全选</string>
+   </property>
+  </action>
+  <action name="cut">
+   <property name="text">
+    <string>剪切</string>
+   </property>
+  </action>
+  <action name="paste">
+   <property name="text">
+    <string>粘贴</string>
+   </property>
+  </action>
+  <action name="search">
+   <property name="text">
+    <string>在Internet中搜索</string>
+   </property>
+  </action>
+  <action name="find">
+   <property name="text">
+    <string>查找</string>
+   </property>
+  </action>
+  <action name="replace">
+   <property name="text">
+    <string>替换</string>
+   </property>
+  </action>
+  <action name="insert_time">
+   <property name="text">
+    <string>输入时间和日期</string>
+   </property>
+  </action>
+  <action name="auto_change_line">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>自动换行</string>
+   </property>
+  </action>
+  <action name="font">
+   <property name="text">
+    <string>字体</string>
+   </property>
+  </action>
+  <action name="status_bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>状态栏</string>
+   </property>
+  </action>
+  <action name="tool_bar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>工具栏</string>
+   </property>
+  </action>
+  <action name="save_as">
+   <property name="text">
+    <string>另存为</string>
+   </property>
+  </action>
+  <action name="copy">
+   <property name="text">
+    <string>复制</string>
+   </property>
+  </action>
+  <action name="help">
+   <property name="text">
+    <string>帮助</string>
+   </property>
+  </action>
+  <action name="about">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>设置</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
