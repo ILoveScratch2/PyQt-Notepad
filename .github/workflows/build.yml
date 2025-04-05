@@ -53,15 +53,15 @@ jobs:
       shell: cmd
       if: matrix.os == 'windows-latest'
       run: |
-        copy icon.png dist\
-        xcopy /E /I resources dist\resources
+        copy icon.png dist\Notepad\
+        xcopy /E /I resources dist\Notepad\resources
 
     - name: Copy Resources
       shell: bash
       if: matrix.os != 'windows-latest'
       run: |
-        cp icon.png dist/
-        cp -R resources dist/
+        cp icon.png dist/Notepad/
+        cp -R resources dist/Notepad/
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
