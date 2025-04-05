@@ -7,6 +7,7 @@ import logging
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtWidgets import QFileDialog, QDialog
+from about import AboutDialog
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtWidgets import QGridLayout
 from PyQt5.QtGui import QTextDocument
@@ -93,7 +94,11 @@ class Ui_window(object):
         # logging.info(f"Text changed")
         self.window.window_title = f"*{self.file_path} - 记事本"
         self.saved = False
-        self.statusbar.showMessage(f"编码:{self.encoding_file.upper()}\t | 文件:{self.file_path}\t | 字数:{len(self.text.toPlainText())}")
+        if self.statusbar.isVisible():
+            self.statusbar.showMessage(f"编码:{self.encoding_file.upper()}\t | 文件:{self.file_path}\t | 字数:{len(self.text.toPlainText())}")
+
+    def toggle_status_bar(self):
+        self.statusbar.setVisible(self.status_bar.isChecked())
 
     def resized_text(self):
         logging.info(f"Window resized:{self.width} {self.height}")
@@ -303,10 +308,8 @@ class Ui_window(object):
 
 
     def about_func(self):
-        dlg = QtWidgets.QApplication(sys.argv)
-        mainWindow = QtWidgets.QDialog()
-        mainWindow.show()
-        mainWindow.exec_()
+        dialog = AboutDialog(self.window)
+        dialog.exec_()
 
     def setupUi(self, window):
         window.setObjectName("window")
@@ -434,6 +437,7 @@ class Ui_window(object):
         self.status_bar.setCheckable(True)
         self.status_bar.setChecked(True)
         self.status_bar.setObjectName("status_bar")
+        self.status_bar.triggered.connect(self.toggle_status_bar)
         self.copy = QtWidgets.QAction(window)
         self.copy.setObjectName("copy")
         self.copy_ico = QtGui.QIcon()
@@ -446,6 +450,7 @@ class Ui_window(object):
         self.help.setIcon(self.help_ico)
         self.about = QtWidgets.QAction(window)
         self.about.setObjectName("about")
+        self.about.setIcon(QtGui.QIcon("resources/question.png"))
         self.menu.addAction(self.new_file)
         self.menu.addAction(self.open_file)
         self.menu.addAction(self.save_file)
@@ -513,7 +518,7 @@ class Ui_window(object):
         self.toolBar.addAction(QtGui.QIcon("resources/printer.png"), "打印")
         self.toolBar.addAction(QtGui.QIcon("resources/arrow-curve-180-left.png"), "撤销")
         self.toolBar.addAction(QtGui.QIcon("resources/arrow-curve.png"), "重做")
-        self.toolBar.addAction(QtGui.QIcon("resources/question.png"), "关于")
+        self.toolBar.addAction(self.about)
         self.font_combo = QtWidgets.QFontComboBox()
         self.font_combo.setFontFilters(QtWidgets.QFontComboBox.AllFonts)
         self.font_combo.currentIndexChanged.connect(self.set_text_font)
