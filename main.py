@@ -1,4 +1,5 @@
 from ui import Ui_window
+from PyQt5.QtGui import QIcon
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSignal
 
@@ -9,6 +10,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_window):
         self.width = None
         self.height = None
         self.setupUi(self)
+        self.setWindowIcon(QIcon('icon.png'))
 
     @property
     def window_title(self):
