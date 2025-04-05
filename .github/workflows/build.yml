@@ -49,6 +49,20 @@ jobs:
       run: |
         pyinstaller --noconfirm --name=Notepad --add-data "resources/*:resources" --add-data "*.png:." --windowed --icon="resources/icon.png" --clean -D main.py
 
+    - name: Copy Resources
+      shell: cmd
+      if: matrix.os == 'windows-latest'
+      run: |
+        copy icon.png dist\
+        xcopy /E /I resources dist\resources
+
+    - name: Copy Resources
+      shell: bash
+      if: matrix.os != 'windows-latest'
+      run: |
+        cp icon.png dist/
+        cp -R resources dist/
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
